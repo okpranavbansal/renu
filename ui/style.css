@@ -1,0 +1,948 @@
+/* ── PREMIUM HEALTH PORTFOLIO DESIGN SYSTEM ── */
+
+:root {
+  /* LIGHT THEME VARIABLES */
+  --bg-app: #f1f5f9;
+  --bg-sidebar: #0f172a;
+  --bg-sidebar-hover: #1e293b;
+  --sidebar-text: #94a3b8;
+  --sidebar-text-active: #38bdf8;
+  --sidebar-border: #1e293b;
+
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(226, 232, 240, 0.8);
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --accent-hover: #0369a1;
+
+  --border: #e2e8f0;
+  --glass-blur: blur(16px);
+
+  /* STATUS STYLES (Light Mode default) */
+  --ok: #059669;
+  --ok-bg: rgba(240, 253, 250, 0.95);
+  --ok-border: #ccfbf1;
+
+  --monitor: #d97706;
+  --monitor-bg: rgba(254, 243, 199, 0.95);
+  --monitor-border: #fde68a;
+
+  --attention: #dc2626;
+  --attention-bg: rgba(254, 242, 242, 0.95);
+  --attention-border: #fee2e2;
+
+  --info: #0284c7;
+  --info-bg: rgba(240, 249, 255, 0.95);
+  --info-border: #e0f2fe;
+
+  --card-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  /* DARK THEME VARIABLES */
+  --bg-app: #080c14;
+  --bg-sidebar: #04060b;
+  --bg-sidebar-hover: #0e1420;
+  --sidebar-text: #64748b;
+  --sidebar-text-active: #38bdf8;
+  --sidebar-border: #0e1420;
+
+  --card-bg: rgba(15, 23, 42, 0.65);
+  --card-border: rgba(30, 41, 59, 0.6);
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3),
+    0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.45),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  --accent: #38bdf8;
+  --accent-light: rgba(56, 189, 248, 0.12);
+  --accent-hover: #7dd3fc;
+
+  --border: #1e293b;
+
+  /* STATUS STYLES (Dark Mode overrides) */
+  --ok: #34d399;
+  --ok-bg: rgba(6, 78, 59, 0.25);
+  --ok-border: rgba(52, 211, 153, 0.2);
+
+  --monitor: #fbbf24;
+  --monitor-bg: rgba(120, 53, 4, 0.25);
+  --monitor-border: rgba(251, 191, 36, 0.2);
+
+  --attention: #f87171;
+  --attention-bg: rgba(127, 29, 29, 0.25);
+  --attention-border: rgba(248, 113, 113, 0.2);
+
+  --info: #38bdf8;
+  --info-bg: rgba(3, 105, 161, 0.25);
+  --info-border: rgba(56, 189, 248, 0.2);
+}
+
+/* ── BASE RESET ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+/* ── APP CONTAINER LAYOUT ── */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── DESKTOP SIDEBAR ── */
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--sidebar-border);
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.brand {
+  margin-bottom: 40px;
+}
+
+.brand h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.brand h1 span {
+  color: var(--accent);
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--sidebar-text);
+  letter-spacing: 2px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: var(--sidebar-text);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.nav-tab:hover {
+  color: #ffffff;
+  background-color: var(--bg-sidebar-hover);
+}
+
+.nav-tab.active {
+  color: var(--sidebar-text-active);
+  background-color: var(--bg-sidebar-hover);
+  box-shadow: inset 4px 0 0 0 var(--sidebar-text-active);
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.nav-tab:hover .nav-icon {
+  transform: scale(1.15);
+}
+
+.sidebar-footer {
+  padding-top: 20px;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+/* ── THEME TOGGLE BUTTONS ── */
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-sidebar-hover);
+  border: 1px solid var(--sidebar-border);
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.theme-btn-icon {
+  display: none;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: var(--transition);
+  box-shadow: var(--card-shadow);
+}
+
+.theme-btn-icon:hover {
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* ── MAIN CONTENT ── */
+.main-content {
+  margin-left: 260px;
+  flex-grow: 1;
+  padding: 40px 48px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOP BAR HEADER ── */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.patient-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.patient-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+}
+
+.patient-details h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.patient-details p {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ── DYNAMIC SECTIONS ── */
+#content-area {
+  flex-grow: 1;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 15px;
+}
+
+.section-lede {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+/* ── PREMIUM GLASS CARDS & GRIDS ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.lifestyle-card,
+.summary-card,
+.recipe-card,
+.drink-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: var(--transition);
+}
+
+.lifestyle-card:hover,
+.recipe-card:hover,
+.drink-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-hover-shadow);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.card-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.lifestyle-card p,
+.summary-card p {
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.card-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+.hindi-note {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--accent-light);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+/* ── STATUS VARIANT CARDS ── */
+.card-ok {
+  border-left: 5px solid var(--ok);
+  background: var(--ok-bg);
+}
+.card-monitor {
+  border-left: 5px solid var(--monitor);
+  background: var(--monitor-bg);
+}
+.card-attention {
+  border-left: 5px solid var(--attention);
+  background: var(--attention-bg);
+}
+
+.card-status {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.status-ok {
+  background: var(--ok-border);
+  color: var(--ok);
+}
+.status-monitor {
+  background: var(--monitor-border);
+  color: var(--monitor);
+}
+.status-attention {
+  background: var(--attention-border);
+  color: var(--attention);
+}
+
+/* ── TODAY BRIGHT BANNER ── */
+.care-brief {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-light),
+    rgba(2, 132, 199, 0.03)
+  );
+  border: 1px solid rgba(2, 132, 199, 0.15);
+  border-left: 5px solid var(--accent);
+  border-radius: var(--card-radius);
+  padding: 30px;
+  margin-bottom: 36px;
+  box-shadow: var(--card-shadow);
+}
+
+.care-brief h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.care-brief p {
+  color: var(--text-secondary);
+  font-size: 14.5px;
+}
+
+.focus-list {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  list-style: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.focus-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.focus-list li:last-child {
+  border-bottom: none;
+}
+
+.focus-list li strong {
+  color: var(--text-primary);
+}
+
+/* ── DAILY TIMELINE SCHEDULE ── */
+.meal-day {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.meal-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.meal-row:last-child {
+  border-bottom: none;
+}
+
+.meal-row:hover {
+  background: rgba(56, 189, 248, 0.03);
+}
+
+.meal-time {
+  background: rgba(241, 245, 249, 0.5);
+  padding: 20px 24px;
+  font-weight: 700;
+  font-size: 13px;
+  border-right: 1px solid var(--border);
+  color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-theme="dark"] .meal-time {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+.meal-food {
+  padding: 20px 28px;
+  font-size: 14.5px;
+  color: var(--text-secondary);
+}
+
+.meal-row-new {
+  background: var(--ok-bg);
+  border-left: 5px solid var(--ok);
+}
+
+.meal-row-new .meal-time {
+  background: transparent;
+  color: var(--ok);
+}
+
+.meal-row-new .meal-food {
+  color: var(--text-primary);
+}
+
+/* ── SIMPLE GUIDE TABLE & LISTS ── */
+.simple-guide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sg-column {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  background: var(--card-bg);
+}
+
+.sg-header {
+  padding: 18px 24px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+.sg-header-eat {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.sg-header-avoid {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.sg-list {
+  list-style: none;
+}
+
+.sg-list li {
+  display: flex;
+  align-items: flex-start;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.sg-list li:hover {
+  background: rgba(56, 189, 248, 0.02);
+}
+
+.sg-list li:last-child {
+  border-bottom: none;
+}
+
+.sg-emoji {
+  font-size: 28px;
+}
+
+.sg-list strong {
+  display: block;
+  font-size: 14.5px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.sg-list p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── DATA TABLES ── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  background: var(--card-bg);
+  margin-top: 15px;
+}
+
+.marker-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.marker-table th {
+  background: var(--bg-sidebar);
+  color: #ffffff;
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.marker-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  vertical-align: middle;
+}
+
+.marker-table tr:last-child td {
+  border-bottom: none;
+}
+
+.marker-table tr:hover td {
+  background: rgba(56, 189, 248, 0.02);
+}
+
+/* ── SAFETY WARNING ALERTS ── */
+.safety-warning {
+  background: var(--attention-bg);
+  border: 1px solid var(--attention-border);
+  border-left: 5px solid var(--attention);
+  padding: 18px 24px;
+  border-radius: var(--card-radius);
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* ── THEME UTILITIES ── */
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-attention {
+  background-color: var(--attention-border);
+  color: var(--attention);
+}
+.badge-monitor {
+  background-color: var(--monitor-border);
+  color: var(--monitor);
+}
+.badge-ok {
+  background-color: var(--ok-border);
+  color: var(--ok);
+}
+
+.recipe-card {
+  padding: 20px;
+}
+
+.recipe-title {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.recipe-details {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.recipe-ingredients {
+  list-style: none;
+  background: rgba(241, 245, 249, 0.5);
+  border-radius: 8px;
+  padding: 12px 16px;
+  border: 1px dashed var(--border);
+}
+
+[data-theme="dark"] .recipe-ingredients {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.recipe-ingredients li {
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding-left: 14px;
+  position: relative;
+}
+
+.recipe-ingredients li::before {
+  content: "•";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+}
+
+.recipe-ingredients li:last-child {
+  margin-bottom: 0;
+}
+
+/* ── MOBILE NAV BAR ── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mobile-tab {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: var(--transition);
+}
+
+.mobile-tab.active {
+  color: var(--accent);
+}
+
+.mobile-tab svg {
+  transition: transform 0.2s;
+}
+
+.mobile-tab.active svg {
+  transform: translateY(-2px) scale(1.1);
+}
+
+.disclaimer {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 20px 24px;
+  border-radius: var(--card-radius);
+  font-size: 12px;
+  color: var(--text-muted);
+  box-shadow: var(--card-shadow);
+  margin-top: 36px;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── RESPONSIVE STYLES ── */
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 24px 20px 88px 20px;
+  }
+  .top-bar-actions .theme-btn-icon {
+    display: flex;
+  }
+  .mobile-nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .care-brief {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  .simple-guide-grid {
+    grid-template-columns: 1fr;
+  }
+  .meal-row {
+    grid-template-columns: 1fr;
+  }
+  .meal-time {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+  }
+  .meal-food {
+    padding: 16px 20px;
+  }
+}
+
+/* ── PRINT STYLES (Fridge Printout) ── */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  .sidebar, .mobile-nav, .theme-btn, .theme-btn-icon {
+    display: none !important;
+  }
+  .main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+  .card-grid, .simple-guide-grid {
+    display: block !important;
+  }
+  .lifestyle-card, .summary-card, .recipe-card, .drink-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    margin-bottom: 15px;
+    padding: 15px !important;
+  }
+  .care-brief {
+    background: none !important;
+    border: 2px solid black !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  .safety-warning {
+    background: none !important;
+    border: 2px solid #dc2626 !important;
+    color: #dc2626 !important;
+    break-inside: avoid;
+  }
+  .meal-row {
+    break-inside: avoid;
+  }
+}

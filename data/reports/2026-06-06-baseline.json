@@ -1,0 +1,75 @@
+{
+  "date": "2026-06-06",
+  "label": "Baseline Diagnosis",
+  "patient": {
+    "name": "Renu",
+    "ageSex": "49 Years / Female",
+    "location": ""
+  },
+  "summary": "Patient presented with heavy bleeding caused by Uterine Fibroids, resulting in Anemia (Hb 9.4). Acute bleeding is being managed with hemostatic and hormonal medications.",
+  "keyMarkers": [
+    {
+      "title": "Hemoglobin (Hb)",
+      "value": "9.4 g/dL",
+      "status": "attention",
+      "normal": "Normal: 12.0–15.0 g/dL"
+    },
+    {
+      "title": "Blood Pressure",
+      "value": "139/92",
+      "status": "monitor",
+      "normal": "Normal: <120/80"
+    },
+    {
+      "title": "Pulse (Resting HR)",
+      "value": "97 bpm",
+      "status": "monitor",
+      "normal": "Normal: 60-100 bpm"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Gynecological Findings",
+      "icon": "🩺",
+      "type": "list",
+      "items": [
+        "<strong>Uterine Fibroids:</strong> Benign tumors in the uterus. Primary cause of heavy menstrual bleeding.",
+        "<strong>Nabothian Cysts:</strong> Benign mucous cysts on the cervix. Require no intervention."
+      ],
+      "note": "Fibroids are the root cause of the current acute bleeding episode and the resulting anemia."
+    },
+    {
+      "title": "Vitals & Blood Work",
+      "icon": "🩸",
+      "type": "table",
+      "headers": ["Test", "Value", "Normal Range", "Status"],
+      "rows": [
+        ["Hemoglobin (Hb)", "9.4 g/dL", "12.0–15.0 g/dL", "attention"],
+        ["Blood Pressure", "139/92 mmHg", "<120/80 mmHg", "monitor"],
+        ["Pulse", "97 bpm", "60-100 bpm", "monitor"]
+      ],
+      "note": "Low hemoglobin (Anemia) explains the elevated resting heart rate (97 bpm) as the heart pumps faster to supply oxygen."
+    }
+  ],
+  "consultationPlan": [
+    {
+      "specialist": "Gynecologist",
+      "when": "Post-acute phase",
+      "note": "To review fibroid size via ultrasound and discuss long-term management (medical vs. surgical)."
+    }
+  ],
+  "targets": [
+    {
+      "marker": "Hemoglobin",
+      "current": "9.4 g/dL",
+      "target3": ">11.0 g/dL",
+      "target6": ">12.0 g/dL"
+    },
+    {
+      "marker": "Blood Pressure",
+      "current": "139/92",
+      "target3": "<130/85",
+      "target6": "<120/80"
+    }
+  ]
+}

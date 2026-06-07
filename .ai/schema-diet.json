@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Diet and Dashboard Schema",
+  "type": "object",
+  "properties": {
+    "goals": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Array of 3-5 primary lifestyle/health goals for the patient based on the wiki."
+    },
+    "conditionSummary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "status": { "type": "string", "enum": ["attention", "monitor", "ok"] },
+          "explain": { "type": "string" }
+        },
+        "required": ["title", "status", "explain"]
+      }
+    },
+    "safetyFirst": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "status": { "type": "string", "enum": ["attention"] },
+          "text": { "type": "string" }
+        },
+        "required": ["title", "status", "text"]
+      }
+    },
+    "medications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "purpose": { "type": "string" },
+          "icon": { "type": "string" }
+        },
+        "required": ["name", "purpose", "icon"]
+      }
+    },
+    "schedule": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time": { "type": "string" },
+          "label": { "type": "string" },
+          "food": { "type": "string" }
+        },
+        "required": ["time", "label", "food"]
+      }
+    },
+    "customModules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "type": { "type": "string", "enum": ["cardGrid", "list", "table"] },
+          "description": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": { "type": "string" },
+                "body": { "type": "string" },
+                "badgeText": { "type": "string" },
+                "badgeTone": { "type": "string", "enum": ["ok", "monitor", "attention"] }
+              },
+              "required": ["title", "body"]
+            }
+          }
+        },
+        "required": ["title", "type", "description", "items"]
+      }
+    }
+  },
+  "required": ["goals", "conditionSummary", "safetyFirst", "medications", "schedule", "customModules"]
+}

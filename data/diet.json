@@ -1,0 +1,136 @@
+{
+  "goals": [
+    "🩸 Rebuild Iron & Hemoglobin (Target Hb > 12 g/dl)",
+    "🛑 Stop Acute Heavy Bleeding Episodes",
+    "🩺 Monitor Borderline High Blood Pressure (139/92)",
+    "🛏️ Aggressive Rest & Hydration"
+  ],
+  "conditionSummary": [
+    {
+      "title": "Uterine Fibroids",
+      "status": "attention",
+      "explain": "Non-cancerous growths in the uterus causing the current heavy, prolonged bleeding episodes.",
+      "hindi": "गर्भाशय में रसौली (गांठें), जो भारी रक्तस्राव का कारण बन रही हैं।"
+    },
+    {
+      "title": "Anemia (Low Hemoglobin)",
+      "status": "attention",
+      "explain": "Hb is currently critically low at 9.4 g/dl due to blood loss. Causes extreme fatigue and fast heart rate (97 bpm).",
+      "hindi": "खून की भारी कमी। इससे थकान और दिल की धड़कन तेज हो सकती है।"
+    },
+    {
+      "title": "Nabothian Cysts",
+      "status": "ok",
+      "explain": "Benign mucous bumps on the cervix. Completely harmless and require no treatment.",
+      "hindi": "सामान्य छोटी गांठें, जिनसे कोई खतरा नहीं है।"
+    }
+  ],
+  "safetyFirst": [
+    {
+      "title": "🚨 ER Rule: Hemorrhage Risk",
+      "status": "attention",
+      "text": "If bleeding soaks through more than 1 large pad per hour for 2 consecutive hours, OR if you feel dizzy/faint upon standing, go to the emergency room immediately."
+    },
+    {
+      "title": "Medication Non-Negotiable",
+      "status": "attention",
+      "text": "Do NOT miss a dose of Cosklot Plus or Regestrone CR while actively bleeding. These are chemically halting the blood loss."
+    }
+  ],
+  "medications": [
+    {
+      "name": "Cosklot Plus (1 BD x 3 days)",
+      "purpose": "Hemostatic agent to clot blood and stop acute heavy bleeding.",
+      "icon": "🩸"
+    },
+    {
+      "name": "Regestrone CR",
+      "purpose": "Progesterone therapy to thin and stabilize the overgrown uterine lining.",
+      "icon": "💊"
+    },
+    {
+      "name": "Pause 1gm (IV Stat)",
+      "purpose": "Tranexamic acid given intravenously to rapidly arrest bleeding.",
+      "icon": "💉"
+    }
+  ],
+  "schedule": [
+    {
+      "time": "Morning (6:30 AM)",
+      "label": "Wake-up & Iron Absorption",
+      "food": "1 glass fresh Amla or Pomegranate juice. The Vitamin C is critical to prepare the stomach to absorb iron today."
+    },
+    {
+      "time": "Breakfast (8:30 AM)",
+      "label": "Meds & Protein",
+      "food": "High protein breakfast (e.g., Besan/Moong Chilla). Take <strong>Cosklot Plus</strong> immediately after."
+    },
+    {
+      "time": "Lunch (1:00 PM)",
+      "label": "Iron-Heavy Meal",
+      "food": "Must include dark leafy greens (Spinach/Palak). <strong>Strict Rule:</strong> No tea or coffee for at least 1 hour after lunch to prevent iron-blocking."
+    },
+    {
+      "time": "Dinner (7:30 PM)",
+      "label": "Night Meds",
+      "food": "Light dinner. Take evening dose of <strong>Cosklot Plus</strong> and <strong>Regestrone CR</strong>."
+    }
+  ],
+  "customModules": [
+    {
+      "title": "🩸 Anemia Rapid Recovery Protocol",
+      "type": "cardGrid",
+      "description": "Strategies to aggressively rebuild the 9.4 g/dl hemoglobin levels.",
+      "items": [
+        {
+          "title": "The Vitamin C Multiplier",
+          "body": "Never eat iron-rich foods alone. Always add a squeeze of lemon or eat with a vitamin C fruit (orange/amla). This increases iron absorption by up to 300%.",
+          "badgeText": "Crucial Rule",
+          "badgeTone": "attention"
+        },
+        {
+          "title": "The Tannin Blocker",
+          "body": "Tea and coffee contain tannins that completely block the stomach from absorbing iron from food. Keep a 1.5-hour gap between tea and meals.",
+          "badgeText": "Avoidance",
+          "badgeTone": "monitor"
+        },
+        {
+          "title": "Best Iron Snacks",
+          "body": "Roasted chana (chickpeas), pumpkin seeds, and dates. Eat these during the mid-morning or evening hunger gaps.",
+          "badgeText": "Daily Snack",
+          "badgeTone": "ok"
+        }
+      ]
+    },
+    {
+      "title": "🌿 Ayurvedic Fibroid Management",
+      "type": "list",
+      "description": "Traditional guidelines to avoid feeding the Kapha-dominant uterine growths.",
+      "items": [
+        {
+          "title": "Reduce Refined Sugars",
+          "body": "Sugar increases inflammation and insulin, which can trigger hormonal imbalances that feed fibroids."
+        },
+        {
+          "title": "Avoid Excess Salt & Pickles",
+          "body": "Salt increases water retention and aggravates the current borderline high blood pressure (139/92)."
+        },
+        {
+          "title": "Triphala Support",
+          "body": "Mild liver support herbs like Triphala help clear excess estrogen from the bloodstream."
+        }
+      ]
+    },
+    {
+      "title": "🏥 Clinical Timeline & Follow-ups",
+      "type": "table",
+      "description": "The exact roadmap for managing the fibroids after the acute bleeding stops.",
+      "tableHeaders": ["Phase", "Action Required", "Medical Reason"],
+      "tableRows": [
+        ["Acute (Days 1-3)", "Strict bed rest, take Cosklot & Regestrone", "Stop immediate dangerous blood loss."],
+        ["Stabilization (Days 4-14)", "Begin aggressive iron therapy", "Rebuild the depleted red blood cell count."],
+        ["Follow-up (Week 3)", "Schedule Pelvic Ultrasound (USG)", "Assess exact size and location of the fibroids to decide on surgery vs long-term meds."]
+      ]
+    }
+  ]
+}

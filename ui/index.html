@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deepak Bansal | Health Portfolio</title>
+    <meta
+      name="description"
+      content="Family-friendly health dashboard for daily diet, safety rules, and medical reports."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- SIDEBAR NAVIGATION -->
+      <aside class="sidebar">
+        <div class="brand">
+          <h1>Deepak <span>Bansal</span></h1>
+          <div class="brand-subtitle">Health Portfolio</div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Health dashboard sections">
+          <button class="nav-tab active" type="button" data-tab="diet">
+            <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20">
+              <path
+                fill="currentColor"
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"
+              />
+            </svg>
+            <span>Today</span>
+          </button>
+          <button class="nav-tab" type="button" data-tab="categories">
+            <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20">
+              <path
+                fill="currentColor"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+              />
+            </svg>
+            <span>Food List</span>
+          </button>
+          <button class="nav-tab" type="button" data-tab="guidelines">
+            <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20">
+              <path
+                fill="currentColor"
+                d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm1-15h-2v2h2V7zm0 4h-2v6h2v-6z"
+              />
+            </svg>
+            <span>Safety</span>
+          </button>
+          <button class="nav-tab" type="button" data-tab="reports">
+            <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20">
+              <path
+                fill="currentColor"
+                d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+              />
+            </svg>
+            <span>Reports</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button
+            id="theme-toggle"
+            class="theme-btn"
+            type="button"
+            aria-label="Toggle theme"
+          >
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text">Dark Mode</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- TOP META HEADER -->
+        <header class="top-bar">
+          <div class="patient-card-header">
+            <div class="patient-avatar">DB</div>
+            <div class="patient-details">
+              <h2>Deepak Bansal</h2>
+              <p>53 Y/O • Male • Ambala, Haryana</p>
+            </div>
+          </div>
+          <div class="top-bar-actions">
+            <button
+              id="theme-toggle-top"
+              class="theme-btn-icon"
+              type="button"
+              aria-label="Toggle theme"
+            >
+              🌙
+            </button>
+          </div>
+        </header>
+
+        <!-- DYNAMIC CONTENT -->
+        <div id="content-area">
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading Health Portfolio...</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- MOBILE NAVIGATION (BOTTOM BAR) -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <button class="mobile-tab active" type="button" data-tab="diet">
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <path
+            fill="currentColor"
+            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"
+          />
+        </svg>
+        <span>Today</span>
+      </button>
+      <button class="mobile-tab" type="button" data-tab="categories">
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <path
+            fill="currentColor"
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+          />
+        </svg>
+        <span>Food List</span>
+      </button>
+      <button class="mobile-tab" type="button" data-tab="guidelines">
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <path
+            fill="currentColor"
+            d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm1-15h-2v2h2V7zm0 4h-2v6h2v-6z"
+          />
+        </svg>
+        <span>Safety</span>
+      </button>
+      <button class="mobile-tab" type="button" data-tab="reports">
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <path
+            fill="currentColor"
+            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+          />
+        </svg>
+        <span>Reports</span>
+      </button>
+    </nav>
+
+    <script src="app.js"></script>
+  </body>
+</html>
